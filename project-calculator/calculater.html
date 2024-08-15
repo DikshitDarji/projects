@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculater</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+       <div class="calculater">
+           <form>
+               <div class="display">
+                   <input type="text" name="display">
+               </div>
+               <div>
+                   <input type="button" value="AC" class = "btnH"onclick="display.value = null " >
+                   <input type="button" value="DE" class = "btnH"onclick="display.value = display.value.toString().slice(0,-1)">
+                   <input type="button" value="." class = "btnH"onclick="display.value += '.' ">
+                   <input type="button" value="/" class = "btnH"onclick="display.value += '/' ">
+               </div>
+               <div>
+                   <input type="button" value="7" class = "btnH"onclick="display.value += '7' " >
+                   <input type="button" value="8" class = "btnH"onclick="display.value += '8' " >
+                   <input type="button" value="9" class = "btnH"onclick="display.value += '9' ">
+                   <input type="button" value="*" class = "btnH"onclick="display.value += '*' ">
+               </div>
+               <div>
+                   <input type="button" value="4" class = "btnH"onclick="display.value += '4' ">
+                   <input type="button" value="5"class = "btnH" onclick="display.value += '5' ">
+                   <input type="button" value="6" class = "btnH"onclick="display.value += '6' ">
+                   <input type="button" value="-" class = "btnH"onclick="display.value += '-' ">
+               </div>
+               <div>
+                   <input type="button" value="1" class = "btnH"onclick="display.value += '1' ">
+                   <input type="button" value="2" class = "btnH"onclick="display.value += '2' ">
+                   <input type="button" value="3" class = "btnH"onclick="display.value += '3' ">
+                   <input type="button" value="+" class = "btnH"onclick="display.value += '+' ">
+               </div>
+               <div>
+                   <input type="button" value="00" class = "btnH"onclick="display.value += '00' ">
+                   <input type="button" value="0" class = "btnH"onclick="display.value += '0' ">
+                   <input type="button" value="=" class = "equal btnH" onclick="display.value = eval(display.value)"   >
+               </div>
+           </form>
+       </div>
+    </div>
+    
+</body>
+<!-- <script src="script.js"></script> -->
+<script>
+    const audioInputs = document.querySelectorAll(".btnH");
+    
+    for (let input of audioInputs) {
+        input.addEventListener('click', (event) => {
+            const audio = new Audio('./audio/click.mp3');
+            audio.play();
+        });
+    }  
+      
+    const audioInput = document.querySelectorAll(".equal");
+    
+    for (let input of audioInput) {
+        input.addEventListener('click', (event) => {
+            const audio = new Audio('./audio/equal.mp3');
+            audio.play();
+        });
+    }  
+      
+    const btn = document.querySelector(".display")
+
+       btn.addEventListener('click', function onclick(display){
+            btn.style.backgroungColor = 'salmon',
+            btn.style.color = 'white'
+       })
+
+       
+</script>
+
+</html>
